@@ -4,7 +4,10 @@
 <br>
 ![](https://i.imgur.com/R8vJHSZ.png)<br>
 <br>
-幫朋友做的小網站，最先只是要讓他的學生計算一下成績，所以目前沒有什麼特別的想法，現在就慢慢做慢慢增加功能，不太確定未來要不要做成 app (因為實用性不太高還要特地下載 app 似乎有點麻煩)。
+幫朋友做的小網站，最先只是要讓他的學生計算一下成績，所以目前沒有什麼特別的想法，現在就慢慢做慢慢增加功能，不太確定未來要不要做成 app (因為實用性不太高還要特地下載 app 似乎有點麻煩)。<br>
+*******
+登入功能的 [API](https://github.com/tzutzu858/education-website/blob/main/api_login.php) <br>
+英文問題留言版的 [API](https://tzutzu858.tw/json/api_comments.php) : [說明](https://github.com/tzutzu858/API-Server-practice-SPA/blob/main/README.md)<br>
 
 ### 預計功能
 1. 老師登入後可以增加每日一句英文、更改計算成績的比例、回覆及刪除英文問題的留言，學生使用網站不用登入
