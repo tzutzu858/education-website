@@ -1,92 +1,115 @@
 body {
-    background-color: rgb(188, 196, 202);
-  }
+  background-color: rgb(188, 196, 202);
+}
 
-  label {
-    color: rgb(0, 0, 59);
-    font-size: 1.3em;
+.title {
+  color      : rgb(0, 0, 59);
+  font-size  : 1.3em;
+  background : none;
+  outline    : none;
+  border     : 0px;
+  width      : 100%;
+  word-wrap  : break-word;
+  white-space: pre-line;
+  display    : inline-block;
+  overflow   : auto;
+}
+
+.container {
+  margin-top      : 5%;
+  padding         : 3%;
+  background-color: #ffffff;
+  border-radius   : 10px;
+  box-shadow      : 2px 2px 10px #C0BFBF;
+}
+
+.search_block {
+  width: 200px;
+}
+
+.add_english_block {
+  padding         : 2%;
+  background-color: #ffffff52;
+  border-radius   : 10px;
+}
+
+.add_english_block input {
+  margin-top: 1%;
+}
+
+.add_english_btn {
+  margin : 2% 0;
+  padding: .2rem .5rem;
+}
+
+.form-group {
+  padding         : 2%;
+  background-color: #c5deffa4;
+  border-radius   : 10px;
+}
+
+.badge {
+  padding     : .25em 1.5em;
+  height      : 25px;
+  margin-right: 10px;
+  line-height : 19px;
+}
+
+.num_block {
+  width: 30%;
+}
+
+.navbar-brand {
+  background: url(../svg/title_logo.svg) no-repeat;
+  width     : 173px;
+  height    : 50px;
+}
+
+.txt {
+  margin-right: 10px;
+}
+
+.percentage::after {
+  content: " %";
+}
+
+.final_score {
+  color      : rgb(204, 47, 47);
+  font-size  : 20px;
+  font-weight: 600;
+}
+
+.final_txt {
+  margin: 0 10px;
+}
+
+.final_num {
+  max-width: 50%;
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 1.1em;
   }
 
   .container {
-    margin-top: 5%;
-    padding: 3%;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px #C0BFBF;
+    margin-top   : 0;
+    border-radius: 0;
+
   }
 
-  .search_block {
-    width: 200px;
+  .score_card {
+    flex-direction: column !important;
+    height        : 150px;
+    padding       : 10px 0;
   }
 
-  .form-group {
-    padding: 2%;
-    background-color: #c5deffa4;
-    border-radius: 10px;
+  .col-6 {
+    max-width: 100%;
+    flex     : 0;
   }
 
-  .badge {
-    padding: .25em 1.5em;
-    height: 25px;
-    margin-right: 10px;
-    line-height: 19px;
+  .col {
+    margin-top: 2%;
   }
-
-  .num_block {
-    width: 30%;
-  }
-
-  .navbar-brand {
-    background: url(../svg/title_logo.svg) no-repeat;
-    width: 173px;
-    height: 50px;
-  }
-
-  .txt {
-    margin-right: 10px;
-  }
-
-  .percentage::after {
-    content: " %";
-  }
-
-  .final_score {
-    color: rgb(204, 47, 47);
-    font-size: 20px;
-    font-weight: 600;
-  }
-
-  .final_txt {
-    margin: 0 10px;
-  }
-
-  .final_num {
-    max-width: 50%;
-  }
-
-  @media (max-width: 1024px) {
-    label {
-      font-size: 1.1em;
-    }
-
-    .container {
-      margin-top: 0;
-      border-radius: 0;
-
-    }
-
-    .score_card {
-      flex-direction: column !important;
-      height: 150px;
-      padding: 10px 0;
-    }
-
-    .col-6 {
-      max-width: 100%;
-      flex: 0;
-    }
-
-    .col {
-      margin-top: 2%;
-    }
-  }
+}
