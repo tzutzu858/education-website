@@ -4,15 +4,15 @@ body {
 
 .title {
   color      : rgb(0, 0, 59);
-  font-size  : 1.3em;
   background : none;
   outline    : none;
   border     : 0px;
   width      : 100%;
-  word-wrap  : break-word;
   white-space: pre-line;
   display    : inline-block;
   overflow   : auto;
+  padding    : 0;
+  margin-bottom: 1%;
 }
 
 .container {
@@ -40,6 +40,11 @@ body {
 .add_english_btn {
   margin : 2% 0;
   padding: .2rem .5rem;
+}
+
+.btn_change_calculation {
+  padding      : .2rem .5rem;
+  margin-bottom: .2rem;
 }
 
 .form-group {

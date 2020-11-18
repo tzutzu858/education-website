@@ -20,7 +20,8 @@ if (!$result) {
 $result = $stmt->get_result();
 $calculation = array();
 while ($row = $result->fetch_assoc()) {
-    array_push($calculation, array(   
+    array_push($calculation, array(  
+        "id" => $row["id"], 
         "title" => $row["title"],
         "percent" => $row["percent"],
     ));
