@@ -84,22 +84,23 @@
   <div class="container">
 
     <div class="alert alert-info" role="alert">
+      <input id ="daily_sentence_id" type="hidden" name="id" value="1">
       <h5>
         每日一句英文
       </h5>
-      <div>
+      <div id="en">
         is the soul’s holiday, an opportunity to stop doing for others and to surprise and delight
         ourselves instead.
       </div>
-      <div>
+      <div id="zh">
         獨處是靈魂的假期，你可以不為他人奔忙，只為給自己帶來驚喜與喜悅。
       </div>
       <div class="admin_english_sentence">
         <div class="btn_daily_english_block">
-          <button class="btn add_english_btn btn-primary" type="button">
+          <button class="btn add_english_btn btn-primary" id="last_sentence" type="button">
             上一句
           </button>
-          <button class="btn add_english_btn btn-primary" type="button">
+          <button class="btn add_english_btn btn-primary" id="next_sentence" type="button">
             下一句
           </button>
           <button class="btn add_english_btn btn-primary" type="button">

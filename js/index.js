@@ -68,6 +68,39 @@ function getCalculationValue() {
     });
 }
 
+function getDailyEnglishList() {
+    $.getJSON('http://localhost/hw1_12/api_list_daily_englich.php', function (data) {
+        if (!data.ok) {
+            alert(data.message)
+            return
+        }
+        const dailyEnglishsentence = data.dailyEnglish;
+        for (let dailyEnglish of dailyEnglishsentence) {
+            $(`#daily_sentence_id`).val(dailyEnglish.id);
+            $(`#en`).html(dailyEnglish.en);
+            $(`#zh`).html(`${dailyEnglish.zh}`);
+        }
+    });
+}
+
+function changeDailySentenceID(num) {
+    const newDailySentenceID = {
+        num: num,
+        username: data,
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost/hw1_12/api_update_daily_englich.php',
+        data: newDailySentenceID
+    }).done(function (data) {
+        if (!data.ok) {
+            alert(data.message)
+            return
+        }
+        getDailyEnglishList();
+    });
+}
 
 //登入或登出狀態
 var data = sessionStorage.getItem('username');
@@ -92,7 +125,7 @@ $(document).ready(() => {
 
     //第一次列表
     getCalculationList();
-
+    getDailyEnglishList();
 
     // 計算最後成績
     $('#score_form').submit(e => {
@@ -173,13 +206,18 @@ $(document).ready(() => {
                 alert(data.message)
                 return
             }
-            const updateCalculation = data.calculation;
-            for (let update of updateCalculation) {
-                id.value = update.id;
-                title.value = update.title;
-                percent.value = update.percent;
-            }
             $('.toast').toast('show');
         });
     });
+
+    //每日一句英文_上一句
+    $('#last_sentence').click(() => {
+        changeDailySentenceID(-1);
+    })
+
+    //每日一句英文_下一句
+    $('#next_sentence').click(() => {
+        changeDailySentenceID(1);
+    })
+
 })
