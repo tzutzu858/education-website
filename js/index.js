@@ -15,7 +15,7 @@ function changeScore(rowid, quantityInput) {
 }
 
 function getCalculationList() {
-    $.getJSON('http://localhost/hw1_12/api_calculation.php', function (data) {
+    $.getJSON('https://tzutzu858.tw/json/api_calculation.php', function (data) {
         if (!data.ok) {
             alert(data.message)
             return
@@ -53,7 +53,7 @@ function getCalculationList() {
 }
 
 function getCalculationValue() {
-    $.getJSON('http://localhost/hw1_12/api_calculation.php', function (data) {
+    $.getJSON('https://tzutzu858.tw/json/api_calculation.php', function (data) {
         if (!data.ok) {
             alert(data.message)
             return
@@ -69,7 +69,7 @@ function getCalculationValue() {
 }
 
 function getDailyEnglishList() {
-    $.getJSON('http://localhost/hw1_12/api_list_daily_englich.php', function (data) {
+    $.getJSON('https://tzutzu858.tw/json/api_list_daily_englich.php', function (data) {
         if (!data.ok) {
             alert(data.message)
             return
@@ -91,7 +91,7 @@ function changeDailySentenceID(num) {
 
     $.ajax({
         type: 'POST',
-        url: 'http://localhost/hw1_12/api_update_daily_englich.php',
+        url: 'https://tzutzu858.tw/json/api_update_daily_englich.php',
         data: newDailySentenceID
     }).done(function (data) {
         if (!data.ok) {
@@ -199,7 +199,7 @@ $(document).ready(() => {
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost/hw1_12/api_update_calculation.php',
+            url: 'https://tzutzu858.tw/json/api_update_calculation.php',
             data: newCalculation
         }).done(function (data) {
             if (!data.ok) {
@@ -231,7 +231,7 @@ $(document).ready(() => {
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost/hw1_12/api_add_english_sentence.php',
+            url: 'https://tzutzu858.tw/json/api_add_english_sentence.php',
             data: newEnglishSentence
         }).done(function (data) {
             if (!data.ok) {
@@ -258,7 +258,7 @@ $(document).ready(() => {
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost/hw1_12/api_delete_english_sentence.php',
+            url: 'https://tzutzu858.tw/json/api_delete_english_sentence.php',
             data: delEnglishSentence
         }).done(function (data) {
             if (!data.ok) {
