@@ -28,3 +28,10 @@ $sql = "UPDATE calculation SET title=? , percent=? WHERE id=? AND username=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('siis', $title, $percent, $id, $username);
 $result = $stmt->execute();
+
+$json = array(
+    "ok" => true,
+);
+
+$response = json_encode($json);
+echo $response;
