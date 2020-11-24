@@ -25,7 +25,7 @@ $row = $result->fetch_assoc();
 $id = $row['id'];
 
 //get daily english sentence
-$sql = "SELECT * FROM daily_english WHERE id = ?";
+$sql = "SELECT * FROM daily_english WHERE id = ? AND is_deleted IS NULL";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('i', $id);
 $result = $stmt->execute();

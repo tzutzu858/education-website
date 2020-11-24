@@ -3,9 +3,9 @@ require_once "conn.php";
 header('Content-type:application/json;charset=utf-8'); //要輸出 json 記得要加這行 header，瀏覽器才會知道他是 json 格式的資料
 header('Access-Control-Allow-Origin: *');
 
-if (empty($_POST['content']) ||
-    empty($_POST['nickname']) ||
-    empty($_POST['site_key'])) {
+if (empty($_POST['username']) ||
+    empty($_POST['zh']) ||
+    empty($_POST['en'])) {
     $json = array(
         "ok" => false,
         "message" => "Please input missing fields",
@@ -16,13 +16,13 @@ if (empty($_POST['content']) ||
     die();
 }
 
-$site_key = $_POST['site_key'];
-$nickname = $_POST['nickname'];
-$content = $_POST['content'];
+$username = $_POST['username'];
+$zh = $_POST['zh'];
+$en = $_POST['en'];
 
-$sql = "INSERT INTO discussions(site_Key, nickname, content) VALUES (?, ?, ?) ";
+$sql = "INSERT INTO daily_english(username, zh, en) VALUES (?, ?, ?) ";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param('sss', $site_key, $nickname, $content);
+$stmt->bind_param('sss', $username, $zh, $en);
 $result = $stmt->execute();
 
 if (!$result) {
@@ -36,17 +36,16 @@ if (!$result) {
     die();
 }
 
-$sql = "SELECT * FROM discussions WHERE id = @@IDENTITY";
+$sql = "SELECT * FROM daily_english WHERE id = @@IDENTITY";
 $stmt = $conn->prepare($sql);
 $result = $stmt->execute();
 $result = $stmt->get_result();
-$discussions = array();
+$dailyEnglish = array();
 $row = $result->fetch_assoc();
-array_push($discussions, array(
+array_push($dailyEnglish, array(
     "id" => $row["id"],
-    "nickname" => $row["nickname"],
-    "content" => $row["content"],
-    "created_at" => $row["created_at"],
+    "zh" => $row["zh"],
+    "en" => $row["en"],
 ));
 
 if (!$result) {
@@ -62,7 +61,7 @@ if (!$result) {
 
 $json = array(
     "ok" => true,
-    "discussions" => $discussions
+    "dailyEnglish" => $dailyEnglish,
 );
 
 $response = json_encode($json);

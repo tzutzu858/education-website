@@ -220,4 +220,52 @@ $(document).ready(() => {
         changeDailySentenceID(1);
     })
 
+    //新增每日英文句子
+    $('#form_english_sentence').submit(e => {
+        e.preventDefault();
+        const newEnglishSentence = {
+            username: data,
+            zh: $('#input_zh').val(),
+            en: $('#input_en').val(),
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost/hw1_12/api_add_english_sentence.php',
+            data: newEnglishSentence
+        }).done(function (data) {
+            if (!data.ok) {
+                alert(data.message)
+                return
+            }
+            const addEnglishsentence = data.dailyEnglish;
+            for (let addEnglish of addEnglishsentence) {
+                $(`#daily_sentence_id`).val(addEnglish.id);
+                $(`#en`).html(addEnglish.en);
+                $(`#zh`).html(`${addEnglish.zh}`);
+            }
+            $('#input_zh').val('');
+            $('#input_en').val('');
+        });
+    });
+
+    // 刪除每日英文句子 
+    $('#del_english_sentence').click(() => {
+        const delEnglishSentence = {
+            username: data,
+            id: $('#daily_sentence_id').val(),
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost/hw1_12/api_delete_english_sentence.php',
+            data: delEnglishSentence
+        }).done(function (data) {
+            if (!data.ok) {
+                alert(data.message)
+                return
+            }
+            getDailyEnglishList();
+        });
+    })
 })

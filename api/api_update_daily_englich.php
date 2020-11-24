@@ -21,7 +21,7 @@ if (empty($_POST['num']) || empty($_POST['username'])) {
 $num = $_POST['num'];
 $username = $_POST['username'];
 // get id
-$sql = "SELECT * FROM record_daily_id WHERE username=?" ;
+$sql = "SELECT * FROM record_daily_id WHERE username=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('s', $username);
 $result = $stmt->execute();
@@ -46,6 +46,27 @@ $sum = $currentID + $num;
 if ($sum < 1 || $sum > $lastID) {
     die();
 }
+//change id_check_deleted
+do {
+    $sql = "SELECT * FROM daily_english WHERE username = ? AND id =? AND is_deleted IS NULL";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('si', $username, $sum);
+    $result = $stmt->execute();
+    if (!$result) {
+        getJson($conn->error);
+    }
+    $result = $stmt->get_result();
+    $rows = $result->num_rows;
+    if ($rows === 0) { //如果沒有這項資料
+        if ($sum > $currentID) {
+            $sum = $sum + 1;
+        } else {
+            $sum = $sum - 1;
+        }
+    }
+} while ($rows === 0);
+
+
 $sql = "UPDATE record_daily_id SET id =? WHERE username=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('is', $sum, $username);

@@ -84,7 +84,7 @@
   <div class="container">
 
     <div class="alert alert-info" role="alert">
-      <input id ="daily_sentence_id" type="hidden" name="id" value="1">
+      <input id="daily_sentence_id" type="hidden" name="id" value="1">
       <h5>
         每日一句英文
       </h5>
@@ -103,7 +103,7 @@
           <button class="btn add_english_btn btn-primary" id="next_sentence" type="button">
             下一句
           </button>
-          <button class="btn add_english_btn btn-primary" type="button">
+          <button class="btn add_english_btn btn-primary" id="del_english_sentence" type="button">
             刪除
           </button>
           <button class="btn add_english_btn btn-primary" type="button" data-toggle="collapse"
@@ -114,14 +114,14 @@
 
 
         <div class="collapse" id="collapseExample">
-          <form>
+          <form id ="form_english_sentence">
             <div class="add_english_block">
               <h5>
                 新增每日一句英文
               </h5>
-              <input type="text" class="form-control" placeholder="輸入英文">
-              <input type="text" class="form-control" placeholder="輸入中文">
-              <button type="submit" class="btn add_english_btn btn-primary">Submit</button>
+              <input id="input_en" type="text" class="form-control" placeholder="輸入英文">
+              <input id="input_zh" type="text" class="form-control" placeholder="輸入中文">
+              <button id="add_english" type="submit" class="btn add_english_btn btn-primary">Submit</button>
             </div>
           </form>
         </div>
