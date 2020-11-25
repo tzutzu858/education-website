@@ -27,7 +27,6 @@ function flagSubmit() {
 }
 
 $(document).ready(() => {
-
     $('.login_form').submit(e => {
         e.preventDefault();
         const newLoginData = {
@@ -48,7 +47,7 @@ $(document).ready(() => {
                 alert(data.message)
                 return
             }
-            
+
             sessionStorage.setItem('username', data.username);
             window.location = 'index.html';
 

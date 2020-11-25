@@ -77,9 +77,23 @@ function getComments() {
 const siteKey = 'vic'
 const loadMoreButtonHTML = '<button class="load-more btn btn-primary">載入更多</button>'
 let lastId = null
-
 $(document).ready(() => {
-    const commentsDOM = $('.comments')
+    const commentsDOM = $('.comments');
+
+    //登入或登出狀態
+    var data = sessionStorage.getItem('username');
+    if (data) {
+        $('.sign_in').hide();
+    } else {
+        $('.sign_out').hide();
+    }
+
+    $('.sign_out').click(() => {
+        sessionStorage.removeItem('username');
+        $('.sign_in').show();
+        $('.sign_out').hide();
+    })
+    
 
     //第一次載入資料
     getComments();
